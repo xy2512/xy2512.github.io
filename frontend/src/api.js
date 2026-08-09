@@ -6,7 +6,24 @@ export class ApiError extends Error {
   }
 }
 
+const staticPreview = import.meta.env.VITE_STATIC_PREVIEW === 'true';
+
+function staticPayload(path, method) {
+  if (method !== 'GET') {
+    throw new ApiError(503, { error: '静态预览不提供账号和数据服务', code: 'STATIC_PREVIEW' });
+  }
+  if (path === '/api/auth/me') return { user: null };
+  if (path.startsWith('/api/skills?')) return { skills: [], page: 1, hasMore: false };
+  if (path === '/api/skills/mine') return { skills: [] };
+  if (path === '/api/conversations') return { conversations: [] };
+  if (path.startsWith('/api/map/')) {
+    throw new ApiError(503, { error: '静态预览不提供地点搜索', code: 'STATIC_PREVIEW' });
+  }
+  throw new ApiError(404, { error: '静态预览中没有该内容', code: 'STATIC_PREVIEW' });
+}
+
 export async function request(path, options = {}) {
+  if (staticPreview) return staticPayload(path, options.method || 'GET');
   const response = await fetch(path, {
     credentials: 'same-origin',
     headers: { 'Content-Type': 'application/json', ...(options.headers || {}) },

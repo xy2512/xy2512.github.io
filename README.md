@@ -73,3 +73,7 @@ npm run restore:pglite -- database/backups/skill-share-xxx.tar.gz
 ```
 
 也可在不使用 Caddy 时通过 `TLS_KEY_PATH` 和 `TLS_CERT_PATH` 让 Node 直接监听 HTTPS。
+
+## GitHub Pages 静态预览
+
+推送 `main` 分支时，`.github/workflows/pages.yml` 会构建并发布静态界面。该模式只用于查看页面，不连接后端、不包含业务数据，也不提供登录、发布、消息、地图代理或数据库功能。完整服务仍需使用上面的 Docker Compose 方案部署。
