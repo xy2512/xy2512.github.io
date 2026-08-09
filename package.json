@@ -1,0 +1,22 @@
+{
+  "name": "skill-share-platform",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "node deployment/dev.mjs",
+    "build": "npm run build --workspace frontend",
+    "start": "npm run start --workspace backend",
+    "migrate": "npm run migrate --workspace backend",
+    "backup": "npm run backup --workspace backend",
+    "restore:pglite": "node database/scripts/restore-pglite.mjs",
+    "check": "npm run check --workspace frontend && npm run check --workspace backend"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

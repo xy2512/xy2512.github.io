@@ -1,0 +1,11 @@
+node_modules/
+frontend/dist/
+database/data/*
+!database/data/.gitkeep
+database/backups/*
+!database/backups/.gitkeep
+deployment/data/*
+!deployment/data/.gitkeep
+.env
+*.log
+.DS_Store

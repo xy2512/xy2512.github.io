@@ -1,0 +1,9 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" fill="#FF6B35"/>
+  <rect x="80" y="60" width="140" height="80" rx="8" fill="white"/>
+  <rect x="90" y="70" width="50" height="8" rx="4" fill="#FF6B35"/>
+  <rect x="90" y="85" width="80" height="6" rx="3" fill="#E0E0E0"/>
+  <rect x="90" y="95" width="60" height="6" rx="3" fill="#E0E0E0"/>
+  <circle cx="200" cy="85" r="15" fill="#FF6B35"/>
+  <text x="150" y="180" text-anchor="middle" fill="white" font-size="16" font-family="Arial">UI设计</text>
+</svg>

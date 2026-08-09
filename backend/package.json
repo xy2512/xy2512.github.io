@@ -1,0 +1,21 @@
+{
+  "name": "@skill-share/backend",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "migrate": "node src/migrate.js",
+    "backup": "node src/backup.js",
+    "check": "node --check src/server.js && node --check src/app.js && node --check src/db/index.js && node --check src/http/skill-routes.js && node --check src/http/map-routes.js && node --check src/services/amap.js && node --check src/realtime/hub.js"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.3.10",
+    "compression": "^1.8.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "pg": "^8.16.3",
+    "ws": "^8.18.3"
+  }
+}
